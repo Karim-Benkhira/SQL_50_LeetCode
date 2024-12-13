@@ -1,43 +1,38 @@
-Table: Products
+# Table: Products
 
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| product_id  | int     |
-| low_fats    | enum    |
-| recyclable  | enum    |
-+-------------+---------+
-product_id is the primary key (column with unique values) for this table.
-low_fats is an ENUM (category) of type ('Y', 'N') where 'Y' means this product is low fat and 'N' means it is not.
-recyclable is an ENUM (category) of types ('Y', 'N') where 'Y' means this product is recyclable and 'N' means it is not.
- 
+## Problem Statement
 
-Write a solution to find the ids of products that are both low fat and recyclable.
+Write a SQL query to find the IDs of products that are both:
+- **Low fat** (`low_fats = 'Y'`)
+- **Recyclable** (`recyclable = 'Y'`)
 
-Return the result table in any order.
+### Requirements:
+- Return the result in any order.
+- The output should include only the `product_id` of the matching products.
 
-The result format is in the following example.
+---
 
- 
+## Example
 
-Example 1:
+### Input:
+`Products` table:
+| product_id | low_fats | recyclable |
+|------------|----------|------------|
+| 0          | Y        | N          |
+| 1          | Y        | Y          |
+| 2          | N        | Y          |
+| 3          | Y        | Y          |
+| 4          | N        | N          |
 
-Input: 
-Products table:
-+-------------+----------+------------+
-| product_id  | low_fats | recyclable |
-+-------------+----------+------------+
-| 0           | Y        | N          |
-| 1           | Y        | Y          |
-| 2           | N        | Y          |
-| 3           | Y        | Y          |
-| 4           | N        | N          |
-+-------------+----------+------------+
-Output: 
-+-------------+
-| product_id  |
-+-------------+
-| 1           |
-| 3           |
-+-------------+
-Explanation: Only products 1 and 3 are both low fat and recyclable.
+### Output:
+| product_id |
+|------------|
+| 1          |
+| 3          |
+
+### Explanation:
+- Products with IDs `1` and `3` satisfy both conditions:
+  - They are low fat (`low_fats = 'Y'`).
+  - They are recyclable (`recyclable = 'Y'`).
+
+---
